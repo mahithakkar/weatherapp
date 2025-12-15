@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Notes App</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Weather & Notes App</h1>
+    
+    <button id="showNotesBtn" class="view-notes-btn">📝 View Saved Notes</button>
+    
+    <form id="weatherForm">
+      <input type="text" id="cityInput" placeholder="Enter city name" required>
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weatherResult"></div>
+    
+    <div id="notesSection">
+      <h2>Add a Note for <span id="cityName"></span></h2>
+      <form id="noteForm">
+        <textarea id="noteText" placeholder="Write your note about this city..." required></textarea>
+        <button type="submit">Save Note</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Saved Notes Modal -->
+  <div id="savedNotesModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>All Saved Notes</h2>
+      <div id="notesContainer"></div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
