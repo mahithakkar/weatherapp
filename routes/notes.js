@@ -7,7 +7,8 @@ const CityNote = require('../models/CityNote');
 router.get('/', async (req, res) => {
     try {
         const notes = await CityNote.find().sort({ date: -1 });
-        res.render('notes', { notes: notes });
+        //res.render('notes', { notes: notes });  change it back to this 
+        res.json(notes); //temporaray!!!! 
     } catch (err) {
         console.error(err);
         res.status(500).send("Server Error");
