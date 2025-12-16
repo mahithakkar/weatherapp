@@ -1,6 +1,8 @@
 # Weather + Notes App
 
-**Submitted by:** [Name of person submitting to UMD server] ([Directory ID])
+**Submitted by:** Mahi Thakkar 
+mthakka1 - directory id 
+mthakka1@terpmail.umd.edu - email
 
 ### Group Members
 * Srivarshini Pentapati (120075858)
@@ -19,4 +21,4 @@ A Node.js/Express application that allows users to search for real-time weather 
 spentapa@terpmail.umd.edu
 
 ### Deployed App Link
-[https://your-app-name.onrender.com] (Paste your Render link here once deployed)
+https://weatherapp-jm57.onrender.com
