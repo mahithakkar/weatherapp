@@ -1,9 +1,7 @@
-// routes/notes.js
 const express = require('express');
 const router = express.Router();
 const CityNote = require('../models/CityNote');
 
-// GET /notes - Show all notes
 router.get('/', async (req, res) => {
     try {
         const notes = await CityNote.find().sort({ date: -1 });
@@ -15,7 +13,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// POST /notes - Save a note
 router.post('/', async (req, res) => {
     try {
         await CityNote.create({

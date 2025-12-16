@@ -1,21 +1,17 @@
 let currentCity = '';
 
-// Load all notes on page load
 document.addEventListener('DOMContentLoaded', () => {
   loadAllNotes();
   
-  // Make sure notes section is hidden on load
   document.getElementById('notesSection').classList.remove('show');
   document.getElementById('weatherResult').classList.remove('show');
   
-  // Add event listener for saved notes button
   document.getElementById('showNotesBtn').addEventListener('click', () => {
     const notesModal = document.getElementById('savedNotesModal');
     notesModal.classList.toggle('show');
     loadAllNotes();
   });
   
-  // Close modal when clicking outside
   window.addEventListener('click', (e) => {
     const modal = document.getElementById('savedNotesModal');
     if (e.target === modal) {
@@ -23,20 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  // Close button
   document.querySelector('.close').addEventListener('click', () => {
     document.getElementById('savedNotesModal').classList.remove('show');
   });
 });
 
-// Weather form submission
 document.getElementById('weatherForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const city = document.getElementById('cityInput').value.trim();
   
   if (!city) return;
   
-  // Hide sections initially
   document.getElementById('notesSection').classList.remove('show');
   document.getElementById('weatherResult').classList.remove('show');
   currentCity = '';
@@ -46,7 +39,6 @@ document.getElementById('weatherForm').addEventListener('submit', async (e) => {
     const data = await res.json();
     
     if (res.ok) {
-      // ONLY show sections if city found
       currentCity = data.city;
       document.getElementById('weatherResult').innerHTML = `
         <h2>Weather in ${data.city}</h2>
@@ -57,7 +49,6 @@ document.getElementById('weatherForm').addEventListener('submit', async (e) => {
       document.getElementById('cityName').textContent = data.city;
       document.getElementById('notesSection').classList.add('show');
     } else {
-      // Show error in weather result
       document.getElementById('weatherResult').innerHTML = `
         <p class="error-message">Error: ${data.error}</p>
       `;
@@ -71,12 +62,10 @@ document.getElementById('weatherForm').addEventListener('submit', async (e) => {
   }
 });
 
-// Note form submission
 document.getElementById('noteForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const note = document.getElementById('noteText').value.trim();
   
-  // Only save if we have a valid city
   if (!note || !currentCity) {
     alert('Please search for a valid city first!');
     return;
@@ -99,7 +88,6 @@ document.getElementById('noteForm').addEventListener('submit', async (e) => {
   }
 });
 
-// Load all notes from database
 async function loadAllNotes() {
   try {
     const res = await fetch('/notes');
